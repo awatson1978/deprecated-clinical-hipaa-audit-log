@@ -3,7 +3,8 @@ Package.describe({
 });
 
 Package.on_use(function (api) {
-api.export('HipaaLogger');
+  api.export('HipaaLogger');
+  api.export('Hipaa');
 
   api.use('standard-app-packages', ['client','server']);
   api.use('iron-router', 'client');
