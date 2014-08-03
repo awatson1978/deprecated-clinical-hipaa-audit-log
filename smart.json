@@ -1,0 +1,8 @@
+{
+    "name": "hipaa-audit-log",
+    "description": "Meteorite package providing HIPAA loging and audits for a Meteor app.",
+    "homepage": "https://github.com/awatson1978/hipaa-audit-log",
+    "author": "Abigail Watson  (http://www.pentasyllabic.com)",
+    "version": "0.0.1",
+    "git": "https://github.com/awatson1978/hipaa-audit-log.git"
+}

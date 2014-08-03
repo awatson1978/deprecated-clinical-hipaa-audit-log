@@ -1,0 +1,15 @@
+{
+  "meteor": {},
+  "dependencies": {
+    "basePackages": {
+      "hipaa-audit-log": {
+        "path": "."
+      }
+    },
+    "packages": {
+      "hipaa-audit-log": {
+        "path": "."
+      }
+    }
+  }
+}
