@@ -1,5 +1,5 @@
 HipaaLogger = {
-  logEvent: function(eventType, userId, userName, collectionName, recordId, message, patientId, patientName){
+  logEvent: function(eventType, userId, collectionName, recordId, message, patientId, patientName){
 
     var newRecord = {
       timestamp: new Date(),
@@ -9,9 +9,9 @@ HipaaLogger = {
     if(userId){
       newRecord.userId = userId;
     }
-    if(userName){
-      newRecord.userName = userName;
-    }
+    // if(userName){
+    //   newRecord.userName = userName;
+    // }
     if(recordId){
       newRecord.recordId = recordId;
     }
