@@ -23,7 +23,7 @@
         <i class="pull-left fa fa-gears fa-2x lightgray"></i>
         <div class="media-body">
           <span class="small gray">{{entryTimestamp}}</span><br>
-          <span class="wombat-orange">{{userName}}</span> initialized HIPAA Audit Log.
+          <span class="wombat-orange">{{getUserName}}</span> initialized HIPAA Audit Log.
         </div>
       </div>
     </li>
@@ -35,7 +35,7 @@
         <i class="pull-left fa fa-database fa-2x lightgray"></i>
         <div class="media-body">
           <span class="small gray">{{entryTimestamp}}</span><br>
-          <span class="wombat-orange">{{userName}}</span> accessed record <span class="wombat-orange">{{getRecordId}}</span> in the <span class="wombat-orange">{{getCollectionName}}</span> collection.
+          <span class="wombat-orange">{{getUserName}}</span> accessed record <span class="wombat-orange">{{getRecordId}}</span> in the <span class="wombat-orange">{{getCollectionName}}</span> collection.
         </div>
       </div>
     </li>
@@ -48,9 +48,9 @@
         <div class="media-body">
           <span class="small gray">{{entryTimestamp}}</span><br>
           {{#if hasPatientInfo}}
-            <span class="wombat-orange">{{userName}}</span> created record <span class="wombat-orange">{{getRecordId}}</span> in the <span class="wombat-orange">{{getCollectionName}}</span> collection, regarding patient <span class="wombat-orange">{{getPatientName}}</span>.
+            <span class="wombat-orange">{{getUserName}}</span> created record <span class="wombat-orange">{{getRecordId}}</span> in the <span class="wombat-orange">{{getCollectionName}}</span> collection, regarding patient <span class="wombat-orange">{{getPatientName}}</span>.
           {{else}}
-            <span class="wombat-orange">{{userName}}</span> created record <span class="wombat-orange">{{getRecordId}}</span> in the <span class="wombat-orange">{{getCollectionName}}</span> collection.
+            <span class="wombat-orange">{{getUserName}}</span> created record <span class="wombat-orange">{{getRecordId}}</span> in the <span class="wombat-orange">{{getCollectionName}}</span> collection.
           {{/if}}
         </div>
       </div>
@@ -64,9 +64,9 @@
         <div class="media-body">
           <span class="small gray">{{entryTimestamp}}</span><br>
           {{#if hasPatientInfo}}
-            <span class="wombat-orange">{{userName}}</span> modified record <span class="wombat-orange">{{getRecordId}}</span> in the <span class="wombat-orange">{{getCollectionName}}</span> collection, regarding patient <span class="wombat-orange">{{getPatientName}}</span>.
+            <span class="wombat-orange">{{getUserName}}</span> modified record <span class="wombat-orange">{{getRecordId}}</span> in the <span class="wombat-orange">{{getCollectionName}}</span> collection, regarding patient <span class="wombat-orange">{{getPatientName}}</span>.
           {{else}}
-            <span class="wombat-orange">{{userName}}</span> modified record <span class="wombat-orange">{{getRecordId}}</span> in the <span class="wombat-orange">{{getCollectionName}}</span> collection.
+            <span class="wombat-orange">{{getUserName}}</span> modified record <span class="wombat-orange">{{getRecordId}}</span> in the <span class="wombat-orange">{{getCollectionName}}</span> collection.
           {{/if}}
 
         </div>
@@ -80,7 +80,7 @@
         <i class="pull-left fa fa-code-fork fa-2x lightgray"></i>
         <div class="media-body">
           <span class="small gray">{{entryTimestamp}}</span><br>
-          <span class="wombat-orange">{{userName}}</span> cloned record <span class="wombat-orange">{{getRecordId}}</span> in the <span class="wombat-orange">{{getCollectionName}}</span> collection.
+          <span class="wombat-orange">{{getUserName}}</span> cloned record <span class="wombat-orange">{{getRecordId}}</span> in the <span class="wombat-orange">{{getCollectionName}}</span> collection.
         </div>
       </div>
     </li>
@@ -92,7 +92,7 @@
         <i class="pull-left fa fa-minus-circle fa-2x lightgray"></i>
         <div class="media-body">
           <span class="small gray">{{entryTimestamp}}</span><br>
-          <span class="wombat-orange">{{userName}}</span> deleted record <span class="wombat-orange">{{getRecordId}}</span> in the <span class="wombat-orange">{{getCollectionName}}</span> collection.
+          <span class="wombat-orange">{{getUserName}}</span> deleted record <span class="wombat-orange">{{getRecordId}}</span> in the <span class="wombat-orange">{{getCollectionName}}</span> collection.
         </div>
       </div>
     </li>
@@ -104,7 +104,7 @@
         <i class="pull-left fa fa-warning fa-2x lightgray"></i>
         <div class="media-body">
           <span class="small gray">{{entryTimestamp}}</span><br>
-          <span class="wombat-orange">{{userName}}</span> was denied access to record <span class="wombat-orange">{{getRecordId}}</span> in the <span class="wombat-orange">{{getCollectionName}}</span> collection.
+          <span class="wombat-orange">{{getUserName}}</span> was denied access to record <span class="wombat-orange">{{getRecordId}}</span> in the <span class="wombat-orange">{{getCollectionName}}</span> collection.
         </div>
       </div>
     </li>
@@ -117,9 +117,9 @@
         <div class="media-body">
           <span class="small gray">{{entryTimestamp}}</span><br>
           {{#if hasPatientInfo}}
-            <span class="wombat-orange">{{userName}}</span> viewed record <span class="wombat-orange">{{getRecordId}}</span> in the <span class="wombat-orange">{{getCollectionName}}</span> collection, regarding patient <span class="wombat-orange">{{getPatientName}}</span>.
+            <span class="wombat-orange">{{getUserName}}</span> viewed record <span class="wombat-orange">{{getRecordId}}</span> in the <span class="wombat-orange">{{getCollectionName}}</span> collection, regarding patient <span class="wombat-orange">{{getPatientName}}</span>.
           {{else}}
-            <span class="wombat-orange">{{userName}}</span> viewed record <span class="wombat-orange">{{getRecordId}}</span> in the <span class="wombat-orange">{{getCollectionName}}</span> collection.
+            <span class="wombat-orange">{{getUserName}}</span> viewed record <span class="wombat-orange">{{getRecordId}}</span> in the <span class="wombat-orange">{{getCollectionName}}</span> collection.
           {{/if}}
         </div>
       </div>
@@ -132,7 +132,7 @@
         <i class="pull-left fa fa-rss fa-2x lightgray"></i>
         <div class="media-body">
           <span class="small gray">{{entryTimestamp}}</span><br>
-          <span class="wombat-orange">{{userName}}</span> published record <span class="wombat-orange">{{getRecordId}}</span> in the <span class="wombat-orange">{{getCollectionName}}</span> collection.
+          <span class="wombat-orange">{{getUserName}}</span> published record <span class="wombat-orange">{{getRecordId}}</span> in the <span class="wombat-orange">{{getCollectionName}}</span> collection.
         </div>
       </div>
     </li>
@@ -143,7 +143,7 @@
         <i class="pull-left fa fa-circle-o fa-2x lightgray"></i>
         <div class="media-body">
           <span class="small gray">{{entryTimestamp}}</span><br>
-          <span class="wombat-orange">{{userName}}</span> unpublished record <span class="wombat-orange">{{getRecordId}}</span> in the <span class="wombat-orange">{{getCollectionName}}</span> collection.
+          <span class="wombat-orange">{{getUserName}}</span> unpublished record <span class="wombat-orange">{{getRecordId}}</span> in the <span class="wombat-orange">{{getCollectionName}}</span> collection.
         </div>
       </div>
     </li>
@@ -155,7 +155,7 @@
         <i class="pull-left fa fa-bomb fa-2x lightgray"></i>
         <div class="media-body">
           <span class="small gray">{{entryTimestamp}}</span><br>
-          <span class="wombat-orange">{{userName}}</span> received a data access error while performing an action!<br>
+          <span class="wombat-orange">{{getUserName}}</span> received a data access error while performing an action!<br>
           <span class="error">{{getErrorMessage}}</span>
 
         </div>
