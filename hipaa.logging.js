@@ -1,6 +1,7 @@
 HipaaLogger = {
   logEvent: function(eventType, userId, collectionName, recordId, message, patientId, patientName){
-
+    console.log('logEvent', eventType, userId, collectionName, recordId, message, patientId, patientName);
+    
     var newRecord = {
       timestamp: new Date(),
       type: eventType

@@ -21,7 +21,7 @@ Template.hipaaEntry.helpers({
   getUserName:function(){
     if(this.userId){
       var user = Meteor.users.findOne(this.userId);
-      if(user && user.profile{
+      if(user && user.profile){
         if(user.profile.name){
           return user.profile.name;
         }else{
