@@ -1,25 +1,28 @@
 Package.describe({
-  summary: "hipaa-audit-log provides logging and auditing features for clinically significant events related to user account usage."
+  summary: "HIPAA audit log for ClinicalFramework.",
+  version: "1.0.1",
+  git: "http://github.com/awatson1978/clinical-hipaa-audit-log.git",
+  name: "clinical:hipaa-audit-log"
 });
 
 Package.on_use(function (api) {
   api.export('HipaaLogger');
   api.export('Hipaa');
 
-  api.use('standard-app-packages', ['client','server']);
-  api.use('iron-router', 'client');
-  api.use('bootstrap-3', 'client');
-  api.use('moment', 'client');
-  api.use('less', 'client')
-  api.use('font-awesome', 'client')
+  api.use('standard-app-packages@1.0.2', ['client','server']);
+  api.use('iron:router@0.9.4', 'client');
+  api.use('mrt:bootstrap-3@0.3.8', 'client');
+  api.use('mrt:moment@2.8.1', 'client');
+  api.use('less@1.0.9', 'client')
+  api.use('mrt:font-awesome-4-less@4.4.0', 'client')
 
   //api.use('clinical-ui-syntax', 'client')
 
-  api.add_files('hipaa.audit.html', "client");
+  api.addFiles('hipaa.audit.html', "client");
 
-  api.add_files('hipaa.logging.js', ["client","server"]);
-  api.add_files('hipaa.shared.js', ["client","server"]);
-  api.add_files('hipaa.server.js', "server");
-  api.add_files('hipaa.client.js', "client");
-  api.add_files('hipaa.less', "client");
+  api.addFiles('hipaa.logging.js', ["client","server"]);
+  api.addFiles('hipaa.shared.js', ["client","server"]);
+  api.addFiles('hipaa.server.js', "server");
+  api.addFiles('hipaa.client.js', "client");
+  api.addFiles('hipaa.less', "client");
 });
