@@ -59,12 +59,12 @@ HipaaLogger.logEventObject(hipaaEvent);
 #### StarryNight/Nightwatch API - Provides
 
 ````js
-# component API calls
-.reviewHipaaAuditLogPage()
-.hipaaLogEntryContains(rowIndex, hipaaEvent)
+// component API calls
+reviewHipaaAuditLogPage()
+hipaaLogEntryContains(rowIndex, hipaaEvent)
 
-# actions
-.logHipaaEvent(hipaaEvent, timeout)
+// actions
+logHipaaEvent(hipaaEvent, timeout)
 ````
 
 ====================================================
