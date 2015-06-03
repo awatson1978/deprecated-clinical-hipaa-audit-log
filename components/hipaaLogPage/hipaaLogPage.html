@@ -1,0 +1,190 @@
+<template name="hipaaLogPage">
+  <div id="hipaaLogPage" class="page">
+    {{> hipaaNavbar }}
+
+    <div class="container">
+      <div class="row">
+        <ul id="hipaaAuditLog" class="list-group">
+          {{#each hipaaAudit}}
+          {{> hipaaEntry}}
+          {{/each}}
+        </ul>
+      </div>
+    </div>
+  </div>
+</template>
+
+
+<template name="hipaaNavbar">
+  <div class="bar bar-header bar-balanced header-nav nav-bar-block nav-bar-transition-ios nav-bar-direction-forward" data-navbar-container="">
+    <button class="button button-clear pull-left button-entering button-active" data-ion-menu-toggle="left"><i class="icon ion-navicon"></i></button>
+    <h1 class="title title-entering title-center title-active" style="left: 30px; right: 30px;">HIPAA Audit Log</h1>
+    <button class="buttons button button-clear back-button pull-left button-entering button-active">
+      <i class="icon ion-ios-plus-empty"></i>
+        <span class="back-text"></span>
+    </button>
+  </div>
+</template>
+
+
+
+<template name="hipaaEntry">
+  {{#if logMessageType 'init'}}
+    <li class="hipaaAuditItem list-group-item">
+      <div class="media">
+        <i class="pull-left fa fa-gears fa-2x lightgray"></i>
+        <div class="media-body">
+          <span class="small gray">{{entryTimestamp}}</span><br>
+          <span class="highlightColor">{{userName}}</span> initialized HIPAA Audit Log.
+        </div>
+      </div>
+    </li>
+  {{/if}}
+
+
+  {{#if logMessageType 'access'}}
+    <li class="hipaaAuditItem list-group-item">
+      <div class="media">
+        <i class="pull-left fa fa-database fa-2x lightgray"></i>
+        <div class="media-body">
+          <span class="small gray">{{entryTimestamp}}</span><br>
+          <span class="highlightColor">{{userName}}</span> accessed record <span class="highlightColor">{{getRecordId}}</span> in the <span class="highlightColor">{{getCollectionName}}</span> collection.
+        </div>
+      </div>
+    </li>
+  {{/if}}
+
+
+  {{#if logMessageType 'create'}}
+    <li class="hipaaAuditItem list-group-item">
+      <div class="media">
+        <i class="pull-left fa fa-plus-circle fa-2x lightgray"></i>
+        <div class="media-body">
+          <span class="small gray">{{entryTimestamp}}</span><br>
+          {{#if hasPatientInfo}}
+            <span class="userName highlightColor">{{userName}}</span> created record <span class="recordId highlightColor">{{getRecordId}}</span> in the <span class="collectionName highlightColor">{{getCollectionName}}</span> collection, regarding patient <span class="patientName highlightColor">{{getPatientName}}</span>.
+          {{else}}
+            <span class="userName highlightColor">{{userName}}</span> created record <span class="recordId highlightColor">{{getRecordId}}</span> in the <span class="collectionName highlightColor">{{getCollectionName}}</span> collection.
+          {{/if}}
+        </div>
+      </div>
+    </li>
+  {{/if}}
+
+
+  {{#if logMessageType 'modify'}}
+    <li class="hipaaAuditItem list-group-item">
+      <div class="media">
+        <i class="pull-left fa fa-pencil fa-2x lightgray"></i>
+        <div class="media-body">
+          <span class="small gray">{{entryTimestamp}}</span><br>
+          {{#if hasPatientInfo}}
+            <span class="highlightColor">{{userName}}</span> modified record <span class="highlightColor">{{getRecordId}}</span> in the <span class="highlightColor">{{getCollectionName}}</span> collection, regarding patient <span class="highlightColor">{{getPatientName}}</span>.
+          {{else}}
+            <span class="highlightColor">{{userName}}</span> modified record <span class="highlightColor">{{getRecordId}}</span> in the <span class="highlightColor">{{getCollectionName}}</span> collection.
+          {{/if}}
+
+        </div>
+      </div>
+    </li>
+  {{/if}}
+
+
+  {{#if logMessageType 'clone'}}
+    <li class="hipaaAuditItem list-group-item">
+      <div class="media">
+        <i class="pull-left fa fa-code-fork fa-2x lightgray"></i>
+        <div class="media-body">
+          <span class="small gray">{{entryTimestamp}}</span><br>
+          <span class="highlightColor">{{userName}}</span> cloned record <span class="highlightColor">{{getRecordId}}</span> in the <span class="highlightColor">{{getCollectionName}}</span> collection.
+        </div>
+      </div>
+    </li>
+  {{/if}}
+
+
+  {{#if logMessageType 'delete'}}
+    <li class="hipaaAuditItem list-group-item">
+      <div class="media">
+        <i class="pull-left fa fa-minus-circle fa-2x lightgray"></i>
+        <div class="media-body">
+          <span class="small gray">{{entryTimestamp}}</span><br>
+          <span class="highlightColor">{{userName}}</span> deleted record <span class="highlightColor">{{getRecordId}}</span> in the <span class="highlightColor">{{getCollectionName}}</span> collection.
+        </div>
+      </div>
+    </li>
+  {{/if}}
+
+
+  {{#if logMessageType 'denied'}}
+    <li class="hipaaAuditItem list-group-item">
+      <div class="media">
+        <i class="pull-left fa fa-warning fa-2x lightgray"></i>
+        <div class="media-body">
+          <span class="small gray">{{entryTimestamp}}</span><br>
+          <span class="highlightColor">{{userName}}</span> was denied access to record <span class="highlightColor">{{getRecordId}}</span> in the <span class="highlightColor">{{getCollectionName}}</span> collection.
+        </div>
+      </div>
+    </li>
+  {{/if}}
+
+
+  {{#if logMessageType 'viewed'}}
+    <li class="hipaaAuditItem list-group-item">
+      <div class="media">
+        <i class="pull-left fa fa-eye fa-2x lightgray"></i>
+        <div class="media-body">
+          <span class="small gray">{{entryTimestamp}}</span><br>
+          {{#if hasPatientInfo}}
+            <span class="highlightColor">{{userName}}</span> viewed record <span class="highlightColor">{{getRecordId}}</span> in the <span class="highlightColor">{{getCollectionName}}</span> collection, regarding patient <span class="highlightColor">{{getPatientName}}</span>.
+          {{else}}
+            <span class="highlightColor">{{userName}}</span> viewed record <span class="highlightColor">{{getRecordId}}</span> in the <span class="highlightColor">{{getCollectionName}}</span> collection.
+          {{/if}}
+        </div>
+      </div>
+    </li>
+  {{/if}}
+
+
+  {{#if logMessageType 'publish'}}
+    <li class="hipaaAuditItem list-group-item">
+      <div class="media">
+        <i class="pull-left fa fa-rss fa-2x lightgray"></i>
+        <div class="media-body">
+          <span class="small gray">{{entryTimestamp}}</span><br>
+          <span class="highlightColor">{{userName}}</span> published record <span class="highlightColor">{{getRecordId}}</span> in the <span class="highlightColor">{{getCollectionName}}</span> collection.
+        </div>
+      </div>
+    </li>
+  {{/if}}
+
+
+  {{#if logMessageType 'unpublish'}}
+    <li class="hipaaAuditItem list-group-item">
+      <div class="media">
+        <i class="pull-left fa fa-circle-o fa-2x lightgray"></i>
+        <div class="media-body">
+          <span class="small gray">{{entryTimestamp}}</span><br>
+          <span class="highlightColor">{{userName}}</span> unpublished record <span class="highlightColor">{{getRecordId}}</span> in the <span class="highlightColor">{{getCollectionName}}</span> collection.
+        </div>
+      </div>
+    </li>
+  {{/if}}
+
+
+  {{#if logMessageType 'error'}}
+    <li class="hipaaAuditItem list-group-item">
+      <div class="media">
+        <i class="pull-left fa fa-bomb fa-2x lightgray"></i>
+        <div class="media-body">
+          <span class="small gray">{{entryTimestamp}}</span><br>
+          <span class="highlightColor">{{userName}}</span> received a data access error while performing an action!<br>
+          <span class="error">{{getErrorMessage}}</span>
+
+        </div>
+      </div>
+    </li>
+  {{/if}}
+
+
+</template>

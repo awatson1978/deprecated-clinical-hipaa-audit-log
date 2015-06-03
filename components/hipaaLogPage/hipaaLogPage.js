@@ -2,11 +2,16 @@
 
 Meteor.subscribe('hipaa');
 
-Router.map(function() {
+/*Router.map(function() {
   this.route("hipaaLogRoute", {
     path: "/audit",
     template: "hipaaLogPage"
   });
+});*/
+
+Router.route("/audit", {
+  template: "hipaaLogPage",
+  name: "hipaaAuditLogRoute"
 });
 
 
@@ -19,15 +24,10 @@ Template.hipaaLogPage.helpers({
 
 Template.hipaaEntry.helpers({
   getUserName:function(){
-    if(this.userId){
-      var user = Meteor.users.findOne(this.userId);
-      if(user && user.profile){
-        if(user.profile.name){
-          return user.profile.name;
-        }else{
-          "---";
-        }
-      }
+    if(this.userName){
+      return this.userName;
+    }else{
+      return "---";
     }
   },
   getPatientName:function(){
