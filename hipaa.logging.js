@@ -46,7 +46,9 @@ HipaaLogger = {
   logEventObject: function(hipaaEvent){
     console.log('logEventObject', hipaaEvent);
 
-    hipaaEvent.timestamp = new Date();
+    if(Meteor.isServer){
+      hipaaEvent.timestamp = new Date();
+    }
 
     var hipaaRecordId = Hipaa.insert(hipaaEvent);
 
