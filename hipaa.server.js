@@ -23,3 +23,19 @@ Meteor.startup(function () {
 
   }
 });
+
+
+
+Meteor.methods({
+  logHipaaEvent:function(hipaaEvent){
+    console.log('logEventObject', hipaaEvent);
+
+    hipaaEvent.timestamp = new Date();
+
+    var hipaaRecordId = Hipaa.insert(hipaaEvent);
+    if(process.env.DEBUG){
+      console.log("hipaaRecordId", hipaaRecordId);
+    }
+    return hipaaRecordId;
+  }
+});

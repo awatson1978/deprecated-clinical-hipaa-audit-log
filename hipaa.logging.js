@@ -48,35 +48,7 @@ HipaaLogger = {
 
     hipaaEvent.timestamp = new Date();
 
-    /*var newRecord = {
-      timestamp: new Date(),
-      type: hipaaEvent.type
-    };
-
-    if(hipaaEvent.userId){
-      newRecord.userId = hipaaEvent.userId;
-    }
-    if(hipaaEvent.userName){
-      newRecord.userName = hipaaEvent.userName;
-    }
-    if(hipaaEvent.recordId){
-      newRecord.recordId = hipaaEvent.recordId;
-    }
-    if(hipaaEvent.collectionName){
-      newRecord.collectionName = hipaaEvent.collectionName;
-    }
-    if(hipaaEvent.error){
-      newRecord.message = hipaaEvent.error;
-    }
-    if(hipaaEvent.patientId){
-      newRecord.patientId = hipaaEvent.patientId;
-    }
-    if(hipaaEvent.patientName){
-      newRecord.patientName = hipaaEvent.patientName;
-    }*/
-
     var hipaaRecordId = Hipaa.insert(hipaaEvent);
-    //console.log("hipaaRecordId", hipaaRecordId);
 
     return hipaaRecordId;
   }
