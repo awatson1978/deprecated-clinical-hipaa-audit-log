@@ -1,8 +1,0 @@
-{
-    "name": "clinical-ui-hipaa-log",
-    "description": "HIPAA Audit Log for Meteor apps built with Clinical UI.",
-    "homepage": "https://github.com/awatson1978/clinical-ui-hipaa-log",
-    "author": "Abigail Watson  (http://www.pentasyllabic.com)",
-    "version": "0.1.5",
-    "git": "https://github.com/awatson1978/clinical-ui-hipaa-log.git"
-}
