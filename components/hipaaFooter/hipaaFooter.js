@@ -1,4 +1,11 @@
 Template.hipaaFooter.events({
+  "change #beginDateInput": function(event, template){
+     Session.set("beginDateFilter", $('#beginDateInput').val() + "T00:00:00.000Z");
+  },
+  "change #endDateInput": function(event, template){
+     Session.set("endDateFilter", $('#endDateInput').val() + "T00:00:00.000Z");
+  },
+
   'click #filterCreatedButton': function(){
     Session.set("hipaaTypeFilter", 'create');
   },
@@ -14,5 +21,10 @@ Template.hipaaFooter.events({
 });
 
 Template.hipaaFooter.helpers({
-
+  getBeginDate: function(){
+    return moment(Session.get("beginDateFilter")).format("YYYY-MM-DD");
+  },
+  getEndDate: function(){
+    return moment(Session.get("endDateFilter")).format("YYYY-MM-DD");
+  }
 });

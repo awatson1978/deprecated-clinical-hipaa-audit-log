@@ -2,23 +2,11 @@
 
 Session.setDefault("hipaaSearchFilter", '');
 Session.setDefault("hipaaTypeFilter", '');
+Session.setDefault("endDateFilter", new Date(moment()).toISOString());
+Session.setDefault("beginDateFilter", new Date(moment().subtract(7, "days")).toISOString());
 
 
 Meteor.subscribe('hipaa');
-
-/*Router.map(function() {
-  this.route("hipaaLogRoute", {
-    path: "/audit",
-    template: "hipaaLogPage"
-  });
-});*/
-
-Router.route("/audit", {
-  template: "hipaaLogPage",
-  name: "hipaaAuditLogRoute"
-});
-
-
 
 
 Template.hipaaLogPage.helpers({
@@ -30,7 +18,11 @@ Template.hipaaLogPage.helpers({
         {userName: {$regex: Session.get('hipaaSearchFilter'), $options: 'i'}},
         {patientName: {$regex: Session.get('hipaaSearchFilter'), $options: 'i'}}
       ],
-      type: {$regex: Session.get("hipaaTypeFilter"), $options: 'i'}
+      type: {$regex: Session.get("hipaaTypeFilter"), $options: 'i'},
+      timestamp:{
+          $lte: new Date(Session.get('endDateFilter')),
+          $gte: new Date(Session.get('beginDateFilter'))
+        }
       }
       ,{sort:{timestamp: -1}});
   }

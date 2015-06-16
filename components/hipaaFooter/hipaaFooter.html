@@ -1,7 +1,7 @@
 <template name="hipaaFooter">
   <div id="hipaaFooter" class="bar bar-footer bar-balanced header-nav nav-bar-transition-ios nav-bar-direction-forward" data-navbar-container="">
-    <input type="date" name="beginDateInput" class="dateInput" value="">
-    <input type="date" name="endDateInput" class="dateInput" value="">
+    <input type="date" id="beginDateInput" class="dateInput" value="{{getBeginDate}}">
+    <input type="date" id="endDateInput" class="dateInput" value="{{getEndDate}}">
 
     <div id="filterButtons">
       <button id="filterCreatedButton" type="button">Created</button>
