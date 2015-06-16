@@ -48,12 +48,30 @@ Meteor.user().profile.fullName
 ````
 
 ====================================================
-#### Core API - Provides
+#### Core API - Methods
 
 ````js
 HipaaLogger.logEvent(eventType, userId, userName, collectionName, recordId, patientId, patientName, message);
 HipaaLogger.logEventObject(hipaaEvent);
 ````
+
+====================================================
+#### Core API - Actions  
+
+````
+init
+access
+create
+modify
+clone
+delete
+denied
+viewed
+publish
+unpublish
+error
+````
+
 
 ====================================================
 #### StarryNight/Nightwatch API - Provides

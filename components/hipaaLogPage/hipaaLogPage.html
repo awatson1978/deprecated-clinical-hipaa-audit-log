@@ -1,6 +1,6 @@
 <template name="hipaaLogPage">
   <div id="hipaaLogPage" class="page">
-    {{> hipaaNavbar }}
+    {{> hipaaHeader }}
 
     <div class="container">
       <div class="row">
@@ -11,20 +11,14 @@
         </ul>
       </div>
     </div>
+
+    {{> hipaaFooter }}
   </div>
 </template>
 
 
-<template name="hipaaNavbar">
-  <div class="bar bar-header bar-balanced header-nav nav-bar-block nav-bar-transition-ios nav-bar-direction-forward" data-navbar-container="">
-    <button class="button button-clear pull-left button-entering button-active" data-ion-menu-toggle="left"><i class="icon ion-navicon"></i></button>
-    <h1 class="title title-entering title-center title-active" style="left: 30px; right: 30px;">HIPAA Audit Log</h1>
-    <button class="buttons button button-clear back-button pull-left button-entering button-active">
-      <i class="icon ion-ios-plus-empty"></i>
-        <span class="back-text"></span>
-    </button>
-  </div>
-</template>
+
+
 
 
 
@@ -48,7 +42,7 @@
         <i class="pull-left fa fa-database fa-2x lightgray"></i>
         <div class="media-body">
           <span class="small gray">{{entryTimestamp}}</span><br>
-          <span class="highlightColor">{{userName}}</span> accessed record <span class="highlightColor">{{getRecordId}}</span> in the <span class="highlightColor">{{getCollectionName}}</span> collection.
+          <span class="userName highlightColor">{{userName}}</span> accessed record(s) <span class="recordId highlightColor">{{getRecordId}}</span> in the <span class="collectionName highlightColor">{{getCollectionName}}</span> collection.
         </div>
       </div>
     </li>
@@ -79,9 +73,9 @@
         <div class="media-body">
           <span class="small gray">{{entryTimestamp}}</span><br>
           {{#if hasPatientInfo}}
-            <span class="highlightColor">{{userName}}</span> modified record <span class="highlightColor">{{getRecordId}}</span> in the <span class="highlightColor">{{getCollectionName}}</span> collection, regarding patient <span class="highlightColor">{{getPatientName}}</span>.
+            <span class="userName highlightColor">{{userName}}</span> modified record <span class="recordId highlightColor">{{getRecordId}}</span> in the <span class="collectionName highlightColor">{{getCollectionName}}</span> collection, regarding patient <span class="patientName highlightColor">{{getPatientName}}</span>.
           {{else}}
-            <span class="highlightColor">{{userName}}</span> modified record <span class="highlightColor">{{getRecordId}}</span> in the <span class="highlightColor">{{getCollectionName}}</span> collection.
+            <span class="userName highlightColor">{{userName}}</span> modified record <span class="recordId highlightColor">{{getRecordId}}</span> in the <span class="collectionName highlightColor">{{getCollectionName}}</span> collection.
           {{/if}}
 
         </div>

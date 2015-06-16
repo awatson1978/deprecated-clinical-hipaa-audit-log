@@ -20,9 +20,18 @@ Package.on_use(function (api) {
 
   api.addFiles('hipaa.server.js', "server");
 
+  api.addFiles('components/hipaaHeader/hipaaHeader.html', "client");
+  api.addFiles('components/hipaaHeader/hipaaHeader.js', "client");
+  api.addFiles('components/hipaaHeader/hipaaHeader.less', "client");
+
+  api.addFiles('components/hipaaFooter/hipaaFooter.html', "client");
+  api.addFiles('components/hipaaFooter/hipaaFooter.js', "client");
+  api.addFiles('components/hipaaFooter/hipaaFooter.less', "client");
+
   api.addFiles('components/hipaaLogPage/hipaaLogPage.html', "client");
   api.addFiles('components/hipaaLogPage/hipaaLogPage.js', "client");
   api.addFiles('components/hipaaLogPage/hipaaLogPage.less', "client");
+
 });
 
 

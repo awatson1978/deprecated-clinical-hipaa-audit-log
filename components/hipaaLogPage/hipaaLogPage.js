@@ -1,5 +1,9 @@
 //Hipaa =  new Meteor.Collection("hipaa");
 
+Session.setDefault("hipaaSearchFilter", '');
+Session.setDefault("hipaaTypeFilter", '');
+
+
 Meteor.subscribe('hipaa');
 
 /*Router.map(function() {
@@ -15,14 +19,35 @@ Router.route("/audit", {
 });
 
 
+
+
 Template.hipaaLogPage.helpers({
+  getHipaaSearchFilter: function(){
+    return Session.get('hipaaSearchFilter');
+  },
   hipaaAudit: function () {
-    return Hipaa.find({},{sort:{timestamp: -1}});
+    return Hipaa.find({$or: [
+        {userName: {$regex: Session.get('hipaaSearchFilter'), $options: 'i'}},
+        {patientName: {$regex: Session.get('hipaaSearchFilter'), $options: 'i'}}
+      ],
+      type: {$regex: Session.get("hipaaTypeFilter"), $options: 'i'}
+      }
+      ,{sort:{timestamp: -1}});
+  }
+});
+
+Template.hipaaLogPage.events({
+  "keyup #hipaaSearchFilter": function(event, template){
+     Session.set("hipaaSearchFilter", $('#hipaaSearchFilter').val());
   }
 });
 
 
+//==================================================================================================
+// HIPAA EVENT RECORD
+
 Template.hipaaEntry.helpers({
+
   getUserName:function(){
     if(this.userName){
       return this.userName;
