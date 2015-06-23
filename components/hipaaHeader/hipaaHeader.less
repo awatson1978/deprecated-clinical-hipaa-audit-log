@@ -1,4 +1,47 @@
 
 #hipaaHeader{
-  
+  #filterRibbon{
+    position: absolute;
+    top: 40px;
+    background-color: #3B7F89;
+
+    .dateInput{
+      width: 160px;
+      margin-left: 5px;
+      margin-right: 5px;
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+
+    button{
+      cursor: pointer;
+      margin-left: 5px;
+      margin-right: 5px;
+      height: 34px;
+    }
+
+    #hipaaSearchFilter{
+      // right: 20px;
+      // position: absolute;
+      width: 200px;
+      color: black;
+      padding-left: 10px;
+      padding-right: 10px;
+      margin-left: 5px;
+      margin-right: 5px;
+    }
+    #filterButtons{
+      position: absolute;
+      right: 10px;
+      float:right;
+      height: 50px;
+    }
+  }
+}
+
+
+@media only screen and (max-width: 850px) {
+  #filterButtons{
+    visibility: hidden;
+  }
 }

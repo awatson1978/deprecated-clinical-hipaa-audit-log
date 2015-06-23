@@ -1,6 +1,6 @@
 Package.describe({
   summary: "HIPAA audit log for ClinicalFramework.",
-  version: "1.2.2",
+  version: "1.2.3",
   git: "http://github.com/awatson1978/clinical-hipaa-audit-log.git",
   name: "clinical:hipaa-audit-log"
 });
@@ -23,10 +23,6 @@ Package.on_use(function (api) {
   api.addFiles('components/hipaaHeader/hipaaHeader.html', "client");
   api.addFiles('components/hipaaHeader/hipaaHeader.js', "client");
   api.addFiles('components/hipaaHeader/hipaaHeader.less', "client");
-
-  api.addFiles('components/hipaaFooter/hipaaFooter.html', "client");
-  api.addFiles('components/hipaaFooter/hipaaFooter.js', "client");
-  api.addFiles('components/hipaaFooter/hipaaFooter.less', "client");
 
   api.addFiles('components/hipaaLogPage/hipaaLogPage.html', "client");
   api.addFiles('components/hipaaLogPage/hipaaLogPage.js', "client");
