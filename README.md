@@ -3,6 +3,7 @@ clinical:hipaa-audit-log
 
 HIPAA logging and audit features for Meteor Apps built with Clinical UI.
 
+![HipaaAuditLogScreenshot](https://raw.githubusercontent.com/awatson1978/clinical-hipaa-audit-log/master/screenshots/auditlog.png)
 
 ====================================================
 #### Installation
@@ -21,7 +22,7 @@ At installation, a Mongo collection is created named 'Hipaa', which users can fi
 ====================================================
 #### API Requirements
 
-This package depends on the ``acounts-base`` package, and relies on the user profile having a ``fullName`` field. s
+This package depends on the ``acounts-base`` package, and generally relies on the user profile having a ``fullName`` field. If you don't have a field that stores the entire user's name, it's recommended that you create one; or at least create a helper function that will generate it.
 
 ````js
 Meteor.user().profile.fullName
@@ -79,10 +80,10 @@ Template.samplePage.events({
       stared: true
     }}, function(error, result){
       if(error){
-        HipaaLogger.logEvent("error", Meteor.userId(), Meteor.user().profile.name, "Vitals", null, null, null, error);
+        HipaaLogger.logEvent("error", Meteor.userId(), Meteor.user().profile.fullName, "Vitals", null, null, null, error);
       }
       if(result){
-        HipaaLogger.logEvent("create", Meteor.userId(), Meteor.user().profile.name, "Vitals", null, null, null, null);
+        HipaaLogger.logEvent("create", Meteor.userId(), Meteor.user().profile.fullName, "Vitals", null, null, null, null);
       }
     });
   }
