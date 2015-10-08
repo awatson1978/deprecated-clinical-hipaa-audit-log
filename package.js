@@ -48,10 +48,10 @@ Package.on_use(function (api) {
 Package.onTest(function (api) {
   api.use('tinytest');
 
-  api.use('standard-app-packages@1.0.2', ['client', 'server']);
+  api.use('meteor-platform@1.2.2');
   api.use('iron:router@1.0.4', 'client');
   api.use('mrt:moment@2.8.1', 'client');
-  api.use('less@1.0.9', 'client');
+  api.use('grove:less@0.1.1', 'client');
   api.use('mrt:font-awesome-4-less@4.4.0', 'client');
   api.use('clinical:hipaa-audit-log');
   api.use('clinical:verification');
