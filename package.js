@@ -12,7 +12,7 @@ Package.on_use(function (api) {
   api.use('iron:router@1.0.4', 'client');
   api.use('mrt:moment@2.8.1', 'client');
   api.use('grove:less@0.1.1', 'client');
-  api.use('mrt:font-awesome-4-less@4.4.0', 'client');
+  api.use('fortawesome:fontawesome@4.4.0', 'client');
 
   api.use('clinical:auto-resizing@0.1.2', 'client');
 
@@ -52,7 +52,7 @@ Package.onTest(function (api) {
   api.use('iron:router@1.0.4', 'client');
   api.use('mrt:moment@2.8.1', 'client');
   api.use('grove:less@0.1.1', 'client');
-  api.use('mrt:font-awesome-4-less@4.4.0', 'client');
+  api.use('fortawesome:fontawesome@4.4.0', 'client');
   api.use('clinical:hipaa-audit-log');
   api.use('clinical:verification');
 
