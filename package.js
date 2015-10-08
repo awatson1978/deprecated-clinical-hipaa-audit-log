@@ -1,26 +1,25 @@
 Package.describe({
   summary: "HIPAA audit log for ClinicalFramework.",
-  version: "1.3.1",
+  version: "1.3.2",
   git: "http://github.com/awatson1978/clinical-hipaa-audit-log.git",
   name: "clinical:hipaa-audit-log"
 });
 
 Package.on_use(function (api) {
-  api.export('HipaaLogger');
-  api.export('Hipaa');
+  api.versionsFrom('1.1.0.2');
 
-  api.use('standard-app-packages@1.0.2', ['client','server']);
+  api.use('meteor-platform@1.2.2');
   api.use('iron:router@1.0.4', 'client');
   api.use('mrt:moment@2.8.1', 'client');
-  api.use('less@1.0.9', 'client');
+  api.use('less@1.0.14', 'client');
   api.use('mrt:font-awesome-4-less@4.4.0', 'client');
 
-  api.use('clinical:auto-resizing@0.1.2', 'client')
+  api.use('clinical:auto-resizing@0.1.2', 'client');
 
-  api.addFiles('lib/HipaaLogger.js', ["client","server"]);
-  api.addFiles('lib/HipaaAuditLog.js', ["client","server"]);
+  api.addFiles('lib/HipaaLogger.js', ["client", "server"]);
+  api.addFiles('lib/HipaaAuditLog.js', ["client", "server"]);
 
-  api.addFiles('hipaa.shared.js', ["client","server"]);
+  api.addFiles('hipaa.shared.js', ["client", "server"]);
 
   api.addFiles('hipaa.server.js', "server");
 
@@ -39,21 +38,23 @@ Package.on_use(function (api) {
   api.export('hipaaLog');
   api.export('hipaaRibbon');
 
+  api.export('Hipaa');
   api.export('HipaaLogger');
   api.export('HipaaAuditLog');
 });
 
 
 
-Package.onTest(function(api) {
+Package.onTest(function (api) {
   api.use('tinytest');
 
-  api.use('standard-app-packages@1.0.2', ['client','server']);
+  api.use('standard-app-packages@1.0.2', ['client', 'server']);
   api.use('iron:router@1.0.4', 'client');
   api.use('mrt:moment@2.8.1', 'client');
-  api.use('less@1.0.9', 'client')
-  api.use('mrt:font-awesome-4-less@4.4.0', 'client')
+  api.use('less@1.0.9', 'client');
+  api.use('mrt:font-awesome-4-less@4.4.0', 'client');
   api.use('clinical:hipaa-audit-log');
+  api.use('clinical:verification');
 
-  api.addFiles('tests/tinytest/foo-tests.js');
+  api.addFiles('tests/tinytest/audit-log-tests.js');
 });
