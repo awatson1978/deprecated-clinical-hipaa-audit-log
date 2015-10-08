@@ -3,6 +3,8 @@ clinical:hipaa-audit-log
 
 HIPAA logging and audit features for Meteor Apps built with Clinical UI.
 
+https://travis-ci.org/awatson1978/clinical-hipaa-audit-log.svg?branch=master
+
 ![HipaaAuditLogScreenshot](https://raw.githubusercontent.com/awatson1978/clinical-hipaa-audit-log/master/screenshots/auditlog.png)
 
 ====================================================
